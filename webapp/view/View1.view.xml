@@ -1,0 +1,130 @@
+<mvc:View
+    controllerName="Leav.controller.View1"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns:l="sap.ui.layout"
+    xmlns:core="sap.ui.core"
+    xmlns:f="sap.ui.layout.form" 
+    displayBlock="true"
+    xmlns="sap.m"
+>
+	<Shell id="shell">
+		<App id="app">
+       <pages>
+				<Page id="page"
+                      showHeader="false">
+        <subHeader>
+            <Bar>
+                 <contentLeft>
+                    <Image width = '80%'
+                           height = '80%'
+                           src="./CG LOGO.png"/>
+                </contentLeft>
+                <contentRight>
+                    <!-- <Text>Leave Management System</Text> -->
+                    <FormattedText 
+                    htmlText="Leave Management System"></FormattedText>
+                    <Button
+                    icon="sap-icon://text-align-justified">
+                    </Button>
+                </contentRight>
+             </Bar>
+             </subHeader>
+             <l:Grid defaultSpan="L12 M7 S12" width="auto">
+		<l:content>
+			<f:SimpleForm id="SimpleFormChange354" minWidth="1024" maxContainerCols="2" layout="ResponsiveLayout" editable="true" visible="true">
+            
+				<f:content>
+
+					<Label text="Name"  labelFor="name"/>
+					<Input id="firstname" value="{/name}"  required="true" width="40%" valueStateText="Name must not be empty. Maximum 10 characters."/>
+                    <!-- <Input id="middlename"  required="false" width="50px"/> -->
+				
+					<Label text="Email id"/>
+					<Input id="email" value="{/email}" required="true" width="40%" valueStateText="E-mail must be a valid email address."/>
+				
+					<Label text="Leave From"/>
+					<DatePicker dateValue="{/startDate}" placeholder="Start date" id="start" required="true" width="40%"/>
+					<Label text="Leave to"/>
+					<DatePicker dateValue="{/endDate}" placeholder="End date" id="end" required="true" width="40%" />
+					<Label/>
+				    
+					<Button id="submit" type="Accept" press=".onPress" text="Submit" width="20%" />
+                 
+				</f:content>
+                
+			</f:SimpleForm>
+		</l:content>
+	</l:Grid>
+    <Table
+        id = "emp"
+		class="sapUiResponsiveMargin"
+		width="auto"
+        growing="true"
+		items="{/data}">
+        <headerToolbar>
+        </headerToolbar>
+        	<columns>
+			<Column
+                id="namecol"
+				width="8em">
+				<Label text="Employee Name" id="_name"/>
+			</Column>
+            <Column
+                id="startdatecol"
+				width="8em">
+				<Label text="Start Date" id="_startdate"/>
+			</Column>
+            <Column
+                id="enddatecol"
+				width="8em">
+				<Label text="End Date" id="_enddate"/>
+			</Column>
+             <Column
+                id="emailcol"
+				width="8em">
+				<Label text="Email ID" id="_email"/>
+			</Column>
+            </columns>
+            <items>
+                <ColumnListItem id="itemlist">
+                    <cells>
+                       <Text text="{name}" id="name"></Text>
+                       <Text text="{startDate}" id="startDate"></Text>
+                       <Text text="{endDate}" id="endDate"></Text>
+                       <Text text="{email}" id="emailid"></Text>
+                    </cells>
+                </ColumnListItem>
+            </items>
+        </Table>
+			
+			<!-- <content>	
+            <FlexBox alignItems="Center"
+        justifyContent="Center">
+            <l:VerticalLayout class="sapUiTinyContentPadding"  width="100%">
+                <l:HorizontalLayout class="sapUiContentPadding">
+                	<Label text="First Name" labelFor="firstName" class="sapUiContentPadding"/>
+                    <Input
+                        id="firstName"
+                        placeholder="First name"
+                        width='100%'
+                    >
+		            </Input>
+                </l:HorizontalLayout>
+                <l:HorizontalLayout class="sapUiContentPadding">
+                	<Label text="First Name" labelFor="firstName" class="sapUiSmallTopmargin"/>
+                    <Input
+                        id="lastName"
+                        placeholder="First name"
+                        width='100%'
+                    >
+		            </Input>
+                </l:HorizontalLayout>
+            </l:VerticalLayout>
+            </FlexBox>
+            </content> -->
+            
+           </Page>
+			</pages> 
+		</App>
+	</Shell>
+</mvc:View>
